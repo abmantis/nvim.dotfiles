@@ -1,6 +1,7 @@
 return {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    event="BufRead",
     cond = not vim.g.vscode,
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
