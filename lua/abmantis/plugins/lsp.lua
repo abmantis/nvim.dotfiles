@@ -34,16 +34,11 @@ return {
             -- nmap('<leader>wl', function()
             --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             -- end, '[W]orkspace [L]ist Folders')
-
-            -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
         end
 
-        -- Enable the following language servers
-        --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-        --
         --  Add any additional override configuration in the following tables. They will be passed to
         --  the `settings` field of the server config. You must look up that documentation yourself.
         --
@@ -57,22 +52,20 @@ return {
             -- tsserver = {},
             -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-            -- lua_ls = {
-            --     Lua = {
-            --         runtime = {
-            --             version = 'LuaJIT'
-            --         },
-            --         workspace = {
-            --             checkThirdParty = false,
-            --             library = {
-            --                 vim.env.VIMRUNTIME
-            --                 -- "${3rd}/luv/library"
-            --                 -- "${3rd}/busted/library",
-            --             }
-            --         },
-            --         telemetry = { enable = false },
-            --     },
-            -- },
+            lua_ls = {
+                Lua = {
+                    runtime = {
+                        version = 'LuaJIT'
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME
+                        }
+                    },
+                    telemetry = { enable = false },
+                },
+            },
         }
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -81,11 +74,9 @@ return {
 
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
-
         mason_lspconfig.setup {
-            ensure_installed = vim.tbl_keys(servers),
+        --     ensure_installed = vim.tbl_keys(servers),
         }
-
         mason_lspconfig.setup_handlers {
             function(server_name)
                 require('lspconfig')[server_name].setup {
