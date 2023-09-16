@@ -4,6 +4,10 @@ end
 
 local vsc = require("vscode-neovim")
 
+vim.keymap.set("n", "<leader>pf", function()
+    vsc.notify('workbench.action.quickOpen', {})
+end)
+
 vim.keymap.set("n", "<leader>ps", function()
     vsc.notify('workbench.action.findInFiles', {query = vim.fn.expand("<cword>"), replace = ''})
 end)
