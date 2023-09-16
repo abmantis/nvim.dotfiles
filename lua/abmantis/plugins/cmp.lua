@@ -2,7 +2,7 @@
 return {
     'hrsh7th/nvim-cmp',
     cond = not vim.g.vscode,
-    event="BufRead",
+    lazy=true,
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
         'L3MON4D3/LuaSnip',
