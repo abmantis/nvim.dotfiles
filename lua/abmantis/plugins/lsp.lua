@@ -67,20 +67,20 @@ return {
                     },
                 }
             },
-            pylsp = {
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            pylint = {
-                                enabled = true
-                            },
+            -- pylsp = {
+                -- settings = {
+                    -- pylsp = {
+                        -- plugins = {
+                            -- pylint = {
+                            --     enabled = true
+                            -- },
                             -- rope_autoimport = {
-                                --                     enabled = true
-                                --                 }
-                        }
-                    }
-                }
-            }
+                            --     enabled = true
+                            -- }
+                        -- }
+                    -- }
+                -- }
+            -- }
         }
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -114,7 +114,7 @@ return {
                 "-m",
                 "pip",
                 "install",
-                "pylint",
+                -- "pylint",
                 "python-lsp-black",
                 "python-lsp-ruff",
                 -- "pylsp-rope",
