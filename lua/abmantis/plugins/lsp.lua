@@ -67,6 +67,20 @@ return {
                     },
                 }
             },
+            pylsp = {
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pylint = {
+                                enabled = true
+                            },
+                            -- rope_autoimport = {
+                                --                     enabled = true
+                                --                 }
+                        }
+                    }
+                }
+            }
         }
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -90,5 +104,21 @@ return {
                 }
             end
         }
+
+        -- install some extra goodies for pylsp
+        -- more can also be installed with :PylspInstall
+        local pylsp = require("mason-registry").get_package("python-lsp-server")
+        pylsp:on("install:success", vim.schedule_wrap(function ()
+            vim.fn.system({
+                vim.fn.expand("~/.local/share/nvim/mason/packages/python-lsp-server/venv/bin/python"),
+                "-m",
+                "pip",
+                "install",
+                "pylint",
+                "python-lsp-black",
+                "python-lsp-ruff",
+                -- "pylsp-rope",
+            })
+        end))
     end,
 }
