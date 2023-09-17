@@ -52,18 +52,20 @@ return {
             -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
             lua_ls = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT'
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT'
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                vim.env.VIMRUNTIME
+                            }
+                        },
+                        telemetry = { enable = false },
                     },
-                    workspace = {
-                        checkThirdParty = false,
-                        library = {
-                            vim.env.VIMRUNTIME
-                        }
-                    },
-                    telemetry = { enable = false },
-                },
+                }
             },
         }
 
@@ -78,11 +80,13 @@ return {
         }
         mason_lspconfig.setup_handlers {
             function(server_name)
+                local server_conf = (servers[server_name] or {})
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
                     on_attach = on_attach,
-                    settings = servers[server_name],
-                    filetypes = (servers[server_name] or {}).filetypes,
+                    init_options = server_conf.init_options,
+                    settings = server_conf.settings,
+                    filetypes = server_conf.filetypes,
                 }
             end
         }
