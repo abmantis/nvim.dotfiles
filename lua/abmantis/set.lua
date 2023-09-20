@@ -25,5 +25,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "89"
+vim.opt.termguicolors = true
 
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
