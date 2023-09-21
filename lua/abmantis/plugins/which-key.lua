@@ -4,7 +4,7 @@ return {
   cond = not vim.g.vscode,
   init = function()
     vim.o.timeout = true
-    vim.o.timeoutlen = 300
+    vim.o.timeoutlen = 1000
   end,
   opts = {
     -- your configuration comes here

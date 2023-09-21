@@ -1,9 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     cond = not vim.g.vscode,
-    event="BufRead",
+    event = "BufRead",
     build = ":TSUpdate",
-    config = function () 
+    config = function()
+        require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
