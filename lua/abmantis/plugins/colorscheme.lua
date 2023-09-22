@@ -1,5 +1,5 @@
-return { 
-	'rose-pine/neovim', 
+return {
+    'rose-pine/neovim',
     name = 'rose-pine',
     cond = not vim.g.vscode,
     priority = 1000,
