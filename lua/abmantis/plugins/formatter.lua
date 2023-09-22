@@ -16,7 +16,6 @@ return {
                         end
                         --
                         -- Call lsp formatter as a fallback
-                        print(vim.api.nvim_get_mode().mode)
                         if vim.api.nvim_get_mode().mode == "v" then
                             vim.lsp.buf.format({
                                 range = {
