@@ -36,15 +36,6 @@ return {
                 -- map('n', '<leader>wl', function()
                 --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 -- end, '[W]orkspace [L]ist Folders')
-                map('n', '<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat current buffer')
-                map('v', '<leader>cf', function()
-                    vim.lsp.buf.format({
-                        range = {
-                            ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
-                            ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
-                        }
-                    })
-                end, '[C]ode [F]ormat current selection')
             end,
         })
 
