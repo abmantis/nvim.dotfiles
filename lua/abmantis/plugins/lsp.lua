@@ -24,18 +24,18 @@ return {
                     vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = desc })
                 end
 
-                map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                map('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-                map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+                map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename')
+                map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+                map('n', 'gd', vim.lsp.buf.definition, 'Goto Definition')
+                map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
                 map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
                 map('n', '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-                map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-                -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-                -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+                map('n', 'gD', vim.lsp.buf.declaration, 'Goto Declaration')
+                -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Workspace Add Folder')
+                -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Workspace Remove Folder')
                 -- map('n', '<leader>wl', function()
                 --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                -- end, '[W]orkspace [L]ist Folders')
+                -- end, 'Workspace List Folders')
             end,
         })
 
