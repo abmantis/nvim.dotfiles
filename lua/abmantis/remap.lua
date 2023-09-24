@@ -1,13 +1,23 @@
+local utils = require('abmantis.utils')
+
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Explore)
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+utils.setkeymap("n", "<leader>pv", vim.cmd.Explore, "Show explorer")
+utils.setkeymap("n", "<C-d>", "<C-d>zz", "Move down 1/2 page")
+utils.setkeymap("n", "<C-u>", "<C-u>zz", "Move up 1/2 page")
+utils.setkeymap("n", "n", "nzzzv", "Next find result")
+utils.setkeymap("n", "N", "Nzzzv", "Previous find result")
 
-vim.keymap.set('x', "<leader>p", "\"_dP", { desc = "Paste without yanking" })
+utils.setkeymap('x', "<leader>p", "\"_dP", "Paste without yanking")
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic message" })
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "Show file diagnostics" })
+utils.setkeymap('n', "<leader>sp", "\"+p", "Paste from system clipboard")
+utils.setkeymap('v', "<leader>sp", "\"+p", "Paste from system clipboard")
+utils.setkeymap('n', "<leader>sP", "\"+P", "Paste from system clipboard")
+
+utils.setkeymap('n', "<leader>sy", "\"+y", "Yank to system clipboard")
+utils.setkeymap('v', "<leader>su", "\"+y", "Yank to system clipboard")
+utils.setkeymap('n', "<leader>sY", "\"+Y", "Yank to system clipboard")
+
+utils.setkeymap('n', '<space>e', vim.diagnostic.open_float, "Show line diagnostics")
+utils.setkeymap('n', '[d', vim.diagnostic.goto_prev, "Previous diagnostic message")
+utils.setkeymap('n', ']d', vim.diagnostic.goto_next, "Next diagnostic message")
+utils.setkeymap('n', '<space>q', vim.diagnostic.setloclist, "Show file diagnostics")

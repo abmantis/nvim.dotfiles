@@ -9,7 +9,7 @@ return {
 
         -- Useful status updates for LSP
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+        { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
     },
     config = function()
         -- Use LspAttach autocommand to only map the following keys
@@ -17,11 +17,12 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = function(ev)
+                local my_utils = require("abmantis.utils")
                 local map = function(mode, keys, func, desc)
                     if desc then
                         desc = 'LSP: ' .. desc
                     end
-                    vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = desc })
+                    my_utils.setkeymap(mode, keys, func, desc, { buffer = ev.buf })
                 end
 
                 map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename')
@@ -70,7 +71,7 @@ return {
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
         mason_lspconfig.setup {
-        --     ensure_installed = vim.tbl_keys(servers),
+            --     ensure_installed = vim.tbl_keys(servers),
         }
         mason_lspconfig.setup_handlers {
             function(server_name)

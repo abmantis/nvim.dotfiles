@@ -30,7 +30,8 @@ return {
                 },
             },
         }
-        vim.keymap.set('n', '<leader>cf', vim.cmd.Format, { desc = 'Code Format current buffer' })
-        vim.keymap.set('v', '<leader>cf', vim.cmd.Format, { desc = 'Code Format current selection' })
+        local utils = require('abmantis.utils')
+        utils.setkeymap('n', '<leader>cf', vim.cmd.Format, 'Code Format current buffer')
+        utils.setkeymap('v', '<leader>cf', vim.cmd.Format, 'Code Format current selection')
     end
 }

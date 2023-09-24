@@ -2,6 +2,7 @@ return {
     'mbbill/undotree',
     cond = not vim.g.vscode,
     config = function()
-        vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+        local my_utils = require('abmantis.utils')
+        my_utils.setkeymap('n', '<leader>u', vim.cmd.UndotreeToggle, "Toggle undotree")
     end
 }
