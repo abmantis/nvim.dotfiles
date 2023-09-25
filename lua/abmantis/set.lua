@@ -34,20 +34,22 @@ vim.diagnostic.config({
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- toggle relativenumber conditionally
-local auGroupUserRelNumberToggle = vim.api.nvim_create_augroup('UserRelNumberToggle', {})
-vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter' }, {
-  group = auGroupUserRelNumberToggle,
-  callback = function()
-    if vim.api.nvim_get_mode().mode == "i" then
-      return
+if not vim.g.vscode then
+  -- toggle relativenumber conditionally
+  local auGroupUserRelNumberToggle = vim.api.nvim_create_augroup('UserRelNumberToggle', {})
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter' }, {
+    group = auGroupUserRelNumberToggle,
+    callback = function()
+      if vim.api.nvim_get_mode().mode == "i" then
+        return
+      end
+      vim.opt.relativenumber = true
     end
-    vim.opt.relativenumber = true
-  end
-})
-vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave' }, {
-  group = auGroupUserRelNumberToggle,
-  callback = function()
-    vim.opt.relativenumber = false
-  end
-})
+  })
+  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave' }, {
+    group = auGroupUserRelNumberToggle,
+    callback = function()
+      vim.opt.relativenumber = false
+    end
+  })
+end
