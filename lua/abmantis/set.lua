@@ -25,6 +25,7 @@ vim.opt.colorcolumn = "89"
 vim.opt.termguicolors = true
 
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+vim.diagnostic.config({ float = { source = "always" } })
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

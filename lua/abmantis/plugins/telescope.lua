@@ -13,5 +13,6 @@ return {
         my_utils.setkeymap('n', 'gI', builtin.lsp_implementations, 'Goto Implementation')
         my_utils.setkeymap('n', '<leader>ds', builtin.lsp_document_symbols, 'Document Symbols')
         my_utils.setkeymap('n', '<leader>ws', builtin.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+        my_utils.setkeymap('n', '<space>q', builtin.diagnostics, "Show file diagnostics")
     end
 }
