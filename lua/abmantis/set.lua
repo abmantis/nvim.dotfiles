@@ -26,6 +26,8 @@ vim.opt.termguicolors = true
 
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
+vim.o.exrc = true
+
 vim.diagnostic.config({
   float = { source = "always" },
   virtual_text = { severity = { min = vim.diagnostic.severity.INFO } }
