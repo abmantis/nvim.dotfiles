@@ -14,7 +14,7 @@ utils.setkeymap('v', "<leader>sp", "\"+p", "Paste from system clipboard")
 utils.setkeymap('n', "<leader>sP", "\"+P", "Paste from system clipboard")
 
 utils.setkeymap('n', "<leader>sy", "\"+y", "Yank to system clipboard")
-utils.setkeymap('v', "<leader>su", "\"+y", "Yank to system clipboard")
+utils.setkeymap('v', "<leader>sy", "\"+y", "Yank to system clipboard")
 utils.setkeymap('n', "<leader>sY", "\"+Y", "Yank to system clipboard")
 
 utils.setkeymap('n', '<space>e', vim.diagnostic.open_float, "Show line diagnostics")
