@@ -8,8 +8,8 @@ return {
     require('lualine').setup({
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { { 'filename', newfile_status = true, path = 1, } },
+        lualine_b = { { 'filename', newfile_status = true, path = 1, }, 'diagnostics' },
+        lualine_c = {},
         lualine_x = { 'fileformat', { 'filetype', icon_only = true } },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
