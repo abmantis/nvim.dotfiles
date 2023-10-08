@@ -14,6 +14,7 @@ local my_pickers = {}
 my_pickers.live_grep_in_folder = function(opts)
   opts = opts or {}
   local data = {}
+  opts.path_display = {}
   scan.scan_dir(vim.loop.cwd(), {
     hidden = opts.hidden,
     only_dirs = true,

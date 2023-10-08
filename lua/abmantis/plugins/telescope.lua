@@ -18,6 +18,7 @@ return {
                 current_buffer_tags = { fname_width = 100, },
                 jumplist = { fname_width = 100, },
                 loclist = { fname_width = 100, },
+                live_grep = { fname_width = 100, },
                 lsp_definitions = { fname_width = 100, },
                 lsp_document_symbols = { fname_width = 100, },
                 lsp_dynamic_workspace_symbols = { fname_width = 100, },
