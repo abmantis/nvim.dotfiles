@@ -30,7 +30,7 @@ return {
                 map('n', 'gd', vim.lsp.buf.definition, 'Goto Definition')
                 map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
                 map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-                map('n', '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+                map('n', '<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
                 map('n', 'gD', vim.lsp.buf.declaration, 'Goto Declaration')
                 -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Workspace Add Folder')
                 -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Workspace Remove Folder')
