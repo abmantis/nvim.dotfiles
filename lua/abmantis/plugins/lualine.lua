@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    require("nvim-navic")
+    local navic = require("nvim-navic")
     require('lualine').setup({
       sections = {
         lualine_a = { 'mode' },
@@ -24,7 +24,18 @@ return {
       winbar = {
         lualine_c = {
           {
-            "navic",
+            function()
+              local loc = navic.get_location({
+                click = true
+              })
+              if loc == "" then
+                return ">"
+              end
+              return loc
+            end,
+            cond = function()
+              return navic.is_available()
+            end
           }
         }
       }
