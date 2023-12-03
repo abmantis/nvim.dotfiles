@@ -1,0 +1,80 @@
+2023-11-20T13:46:16.3882441Z ##[group]Run actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+2023-11-20T13:46:16.3882961Z with:
+2023-11-20T13:46:16.3883260Z   repository: codecov/uploader
+2023-11-20T13:46:16.3883752Z   token: ***
+2023-11-20T13:46:16.3884177Z   ssh-strict: true
+2023-11-20T13:46:16.3884479Z   persist-credentials: true
+2023-11-20T13:46:16.3884759Z   clean: true
+2023-11-20T13:46:16.3885006Z   sparse-checkout-cone-mode: true
+2023-11-20T13:46:16.3885312Z   fetch-depth: 1
+2023-11-20T13:46:16.3885538Z   fetch-tags: false
+2023-11-20T13:46:16.3885792Z   show-progress: true
+2023-11-20T13:46:16.3886041Z   lfs: false
+2023-11-20T13:46:16.3886261Z   submodules: false
+2023-11-20T13:46:16.3886508Z   set-safe-directory: true
+2023-11-20T13:46:16.3886772Z ##[endgroup]
+2023-11-20T13:46:16.5962992Z Syncing repository: codecov/uploader
+2023-11-20T13:46:16.5965232Z ##[group]Getting Git version info
+2023-11-20T13:46:16.5966161Z Working directory is '/home/runner/work/uploader/uploader'
+2023-11-20T13:46:16.5967000Z [command]/usr/bin/git version
+2023-11-20T13:46:16.6032641Z git version 2.42.0
+2023-11-20T13:46:16.6060393Z ##[endgroup]
+2023-11-20T13:46:16.6076115Z Temporarily overriding HOME='/home/runner/work/_temp/4769c3db-c684-4db8-988a-3ee666f69856' before making global git config changes
+2023-11-20T13:46:16.6077142Z Adding repository directory to the temporary git global config as a safe directory
+2023-11-20T13:46:16.6082285Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/uploader/uploader
+2023-11-20T13:46:16.6118506Z Deleting the contents of '/home/runner/work/uploader/uploader'
+2023-11-20T13:46:16.6124396Z ##[group]Initializing the repository
+2023-11-20T13:46:16.6127945Z [command]/usr/bin/git init /home/runner/work/uploader/uploader
+2023-11-20T13:46:16.6185522Z hint: Using 'master' as the name for the initial branch. This default branch name
+2023-11-20T13:46:16.6186764Z hint: is subject to change. To configure the initial branch name to use in all
+2023-11-20T13:46:16.6187937Z hint: of your new repositories, which will suppress this warning, call:
+2023-11-20T13:46:16.6188734Z hint: 
+2023-11-20T13:46:16.6189399Z hint: 	git config --global init.defaultBranch <name>
+2023-11-20T13:46:16.6190017Z hint: 
+2023-11-20T13:46:16.6190713Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2023-11-20T13:46:16.6193699Z hint: 'development'. The just-created branch can be renamed via this command:
+2023-11-20T13:46:16.6194519Z hint: 
+2023-11-20T13:46:16.6194938Z hint: 	git branch -m <name>
+2023-11-20T13:46:16.6198444Z Initialized empty Git repository in /home/runner/work/uploader/uploader/.git/
+2023-11-20T13:46:16.6208496Z [command]/usr/bin/git remote add origin https://github.com/codecov/uploader
+2023-11-20T13:46:16.6238850Z ##[endgroup]
+2023-11-20T13:46:16.6239603Z ##[group]Disabling automatic garbage collection
+2023-11-20T13:46:16.6245687Z [command]/usr/bin/git config --local gc.auto 0
+2023-11-20T13:46:16.6273161Z ##[endgroup]
+2023-11-20T13:46:16.6273834Z ##[group]Setting up auth
+2023-11-20T13:46:16.6278576Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2023-11-20T13:46:16.6306719Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2023-11-20T13:46:16.6599929Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2023-11-20T13:46:16.6626678Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2023-11-20T13:46:16.6853866Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2023-11-20T13:46:16.6885683Z ##[endgroup]
+2023-11-20T13:46:16.6886399Z ##[group]Fetching the repository
+2023-11-20T13:46:16.6894953Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7a36869a760f316250f44ab54de8dcaf7003ce29:refs/remotes/pull/1314/merge
+2023-11-20T13:46:17.6910241Z From https://github.com/codecov/uploader
+2023-11-20T13:46:17.6911602Z  * [new ref]         7a36869a760f316250f44ab54de8dcaf7003ce29 -> pull/1314/merge
+2023-11-20T13:46:17.6933800Z ##[endgroup]
+2023-11-20T13:46:17.6934580Z ##[group]Determining the checkout info
+2023-11-20T13:46:17.6936268Z ##[endgroup]
+2023-11-20T13:46:17.6937013Z ##[group]Checking out the ref
+2023-11-20T13:46:17.6941442Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1314/merge
+2023-11-20T13:46:17.7481057Z Note: switching to 'refs/remotes/pull/1314/merge'.
+2023-11-20T13:46:17.7481861Z 
+2023-11-20T13:46:17.7482875Z You are in 'detached HEAD' state. You can look around, make experimental
+2023-11-20T13:46:17.7484425Z changes and commit them, and you can discard any commits you make in this
+2023-11-20T13:46:17.7485648Z state without impacting any branches by switching back to a branch.
+2023-11-20T13:46:17.7486375Z 
+2023-11-20T13:46:17.7486862Z If you want to create a new branch to retain commits you create, you may
+2023-11-20T13:46:17.7488146Z do so (now or later) by using -c with the switch command. Example:
+2023-11-20T13:46:17.7488812Z 
+2023-11-20T13:46:17.7489153Z   git switch -c <new-branch-name>
+2023-11-20T13:46:17.7489565Z 
+2023-11-20T13:46:17.7489781Z Or undo this operation with:
+2023-11-20T13:46:17.7490154Z 
+2023-11-20T13:46:17.7490322Z   git switch -
+2023-11-20T13:46:17.7490587Z 
+2023-11-20T13:46:17.7491097Z Turn off this advice by setting config variable advice.detachedHead to false
+2023-11-20T13:46:17.7491867Z 
+2023-11-20T13:46:17.7492695Z HEAD is now at 7a36869 Merge 0b2aab14e357bde4bcc662c39ea0c35c37b1c363 into eeeb3652fc7c66fa379c751a4f1946c0cb564bd5
+2023-11-20T13:46:17.7494917Z ##[endgroup]
+2023-11-20T13:46:17.7528301Z [command]/usr/bin/git log -1 --format='%H'
+2023-11-20T13:46:17.7551139Z '7a36869a760f316250f44ab54de8dcaf7003ce29'
