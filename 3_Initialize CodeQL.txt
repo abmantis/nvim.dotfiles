@@ -1,0 +1,705 @@
+2023-11-20T13:46:17.7910967Z ##[group]Run github/codeql-action/init@66b90a5db151a8042fa97405c6cf843bbe433f7b
+2023-11-20T13:46:17.7911480Z with:
+2023-11-20T13:46:17.7911689Z   languages: javascript
+2023-11-20T13:46:17.7912106Z   token: ***
+2023-11-20T13:46:17.7912362Z   matrix: {
+  "language": "javascript"
+}
+2023-11-20T13:46:17.7912920Z   setup-python-dependencies: true
+2023-11-20T13:46:17.7913231Z   debug: false
+2023-11-20T13:46:17.7913451Z ##[endgroup]
+2023-11-20T13:46:19.5330276Z ##[group]Setup CodeQL tools
+2023-11-20T13:46:19.5343869Z Found CodeQL tools version 2.15.2 in the toolcache.
+2023-11-20T13:46:19.5348702Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql version --format=json
+2023-11-20T13:46:21.3572568Z {
+2023-11-20T13:46:21.3573088Z   "productName" : "CodeQL",
+2023-11-20T13:46:21.3573582Z   "vendor" : "GitHub",
+2023-11-20T13:46:21.3573985Z   "version" : "2.15.2",
+2023-11-20T13:46:21.3574488Z   "sha" : "78b886313be7ad38e97ccbd682189f1954482bdb",
+2023-11-20T13:46:21.3575062Z   "branches" : [
+2023-11-20T13:46:21.3575804Z     "codeql-cli-2.15.2"
+2023-11-20T13:46:21.3576237Z   ],
+2023-11-20T13:46:21.3576822Z   "copyright" : "Copyright (C) 2019-2023 GitHub, Inc.",
+2023-11-20T13:46:21.3577711Z   "unpackedLocation" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql",
+2023-11-20T13:46:21.3578691Z   "configFileLocation" : "/home/runner/.config/codeql/config",
+2023-11-20T13:46:21.3579442Z   "configFileFound" : false,
+2023-11-20T13:46:21.3579921Z   "features" : {
+2023-11-20T13:46:21.3580362Z     "analysisSummaryV2Option" : true,
+2023-11-20T13:46:21.3580962Z     "featuresInVersionResult" : true,
+2023-11-20T13:46:21.3581653Z     "indirectTracingSupportsStaticBinaries" : false,
+2023-11-20T13:46:21.3582347Z     "supportsPython312" : true,
+2023-11-20T13:46:21.3582869Z     "mrvaPackCreate" : true
+2023-11-20T13:46:21.3583300Z   }
+2023-11-20T13:46:21.3583601Z }
+2023-11-20T13:46:21.3809024Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql version --format=json
+2023-11-20T13:46:21.8851850Z {
+2023-11-20T13:46:21.8852913Z   "productName" : "CodeQL",
+2023-11-20T13:46:21.8853654Z   "vendor" : "GitHub",
+2023-11-20T13:46:21.8854065Z   "version" : "2.15.2",
+2023-11-20T13:46:21.8854573Z   "sha" : "78b886313be7ad38e97ccbd682189f1954482bdb",
+2023-11-20T13:46:21.8864268Z   "branches" : [
+2023-11-20T13:46:21.8865261Z     "codeql-cli-2.15.2"
+2023-11-20T13:46:21.8866076Z   ],
+2023-11-20T13:46:21.8867084Z   "copyright" : "Copyright (C) 2019-2023 GitHub, Inc.",
+2023-11-20T13:46:21.8868356Z   "unpackedLocation" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql",
+2023-11-20T13:46:21.8869638Z   "configFileLocation" : "/home/runner/.config/codeql/config",
+2023-11-20T13:46:21.8870528Z   "configFileFound" : false,
+2023-11-20T13:46:21.8881349Z   "features" : {
+2023-11-20T13:46:21.8882139Z     "analysisSummaryV2Option" : true,
+2023-11-20T13:46:21.8882749Z     "featuresInVersionResult" : true,
+2023-11-20T13:46:21.8883414Z     "indirectTracingSupportsStaticBinaries" : false,
+2023-11-20T13:46:21.8884312Z     "supportsPython312" : true,
+2023-11-20T13:46:21.8884827Z     "mrvaPackCreate" : true
+2023-11-20T13:46:21.8885241Z   }
+2023-11-20T13:46:21.8885529Z }
+2023-11-20T13:46:21.9071184Z ##[endgroup]
+2023-11-20T13:46:21.9071943Z ##[group]Validating workflow
+2023-11-20T13:46:22.5045115Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql resolve languages --format=betterjson --extractor-options-verbosity=4 --extractor-include-aliases
+2023-11-20T13:46:23.4268617Z {
+2023-11-20T13:46:23.4269345Z   "aliases" : {
+2023-11-20T13:46:23.4269853Z     "c" : "cpp",
+2023-11-20T13:46:23.4270230Z     "c++" : "cpp",
+2023-11-20T13:46:23.4270871Z     "c-c++" : "cpp",
+2023-11-20T13:46:23.4271315Z     "c-cpp" : "cpp",
+2023-11-20T13:46:23.4271692Z     "c#" : "csharp",
+2023-11-20T13:46:23.4272140Z     "java-kotlin" : "java",
+2023-11-20T13:46:23.4272571Z     "kotlin" : "java",
+2023-11-20T13:46:23.4273100Z     "javascript-typescript" : "javascript",
+2023-11-20T13:46:23.4273685Z     "typescript" : "javascript"
+2023-11-20T13:46:23.4274121Z   },
+2023-11-20T13:46:23.4274433Z   "extractors" : {
+2023-11-20T13:46:23.4275274Z     "xml" : [
+2023-11-20T13:46:23.4275615Z       {
+2023-11-20T13:46:23.4276191Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/xml"
+2023-11-20T13:46:23.4276927Z       }
+2023-11-20T13:46:23.4277240Z     ],
+2023-11-20T13:46:23.4277850Z     "csharp" : [
+2023-11-20T13:46:23.4278226Z       {
+2023-11-20T13:46:23.4278841Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csharp",
+2023-11-20T13:46:23.4279672Z         "extractor_options" : {
+2023-11-20T13:46:23.4280158Z           "trap" : {
+2023-11-20T13:46:23.4280662Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:23.4281413Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:23.4282137Z             "type" : "object",
+2023-11-20T13:46:23.4282615Z             "properties" : {
+2023-11-20T13:46:23.4283093Z               "compression" : {
+2023-11-20T13:46:23.4284103Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:23.4286602Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:23.4288579Z                 "type" : "string",
+2023-11-20T13:46:23.4289172Z                 "pattern" : "^(none|gzip|brotli)$"
+2023-11-20T13:46:23.4289755Z               }
+2023-11-20T13:46:23.4290107Z             }
+2023-11-20T13:46:23.4290468Z           },
+2023-11-20T13:46:23.4290830Z           "buildless" : {
+2023-11-20T13:46:23.4291497Z             "title" : "Whether to use buildless (standalone) extraction.",
+2023-11-20T13:46:23.4295884Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:23.4299365Z             "type" : "string",
+2023-11-20T13:46:23.4299873Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:23.4300292Z           },
+2023-11-20T13:46:23.4300502Z           "cil" : {
+2023-11-20T13:46:23.4300805Z             "title" : "Whether to enable CIL extraction.",
+2023-11-20T13:46:23.4301568Z             "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+2023-11-20T13:46:23.4302154Z             "type" : "string",
+2023-11-20T13:46:23.4302444Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:23.4302742Z           }
+2023-11-20T13:46:23.4302936Z         }
+2023-11-20T13:46:23.4303133Z       }
+2023-11-20T13:46:23.4303314Z     ],
+2023-11-20T13:46:23.4303510Z     "cpp" : [
+2023-11-20T13:46:23.4303719Z       {
+2023-11-20T13:46:23.4304056Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/cpp"
+2023-11-20T13:46:23.4304489Z       }
+2023-11-20T13:46:23.4304666Z     ],
+2023-11-20T13:46:23.4304850Z     "go" : [
+2023-11-20T13:46:23.4305082Z       {
+2023-11-20T13:46:23.4305405Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/go"
+2023-11-20T13:46:23.4305826Z       }
+2023-11-20T13:46:23.4306000Z     ],
+2023-11-20T13:46:23.4306193Z     "javascript" : [
+2023-11-20T13:46:23.4306423Z       {
+2023-11-20T13:46:23.4306780Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/javascript",
+2023-11-20T13:46:23.4307262Z         "extractor_options" : {
+2023-11-20T13:46:23.4307540Z           "trap" : {
+2023-11-20T13:46:23.4307804Z             "title" : "TRAP options",
+2023-11-20T13:46:23.4308248Z             "description" : "Options about how the extractor handles TRAP files",
+2023-11-20T13:46:23.4308698Z             "type" : "object",
+2023-11-20T13:46:23.4308971Z             "visibility" : 3,
+2023-11-20T13:46:23.4309469Z             "properties" : {
+2023-11-20T13:46:23.4309734Z               "cache" : {
+2023-11-20T13:46:23.4310024Z                 "title" : "TRAP cache options",
+2023-11-20T13:46:23.4310505Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2023-11-20T13:46:23.4311103Z                 "type" : "object",
+2023-11-20T13:46:23.4311394Z                 "properties" : {
+2023-11-20T13:46:23.4311674Z                   "dir" : {
+2023-11-20T13:46:23.4311977Z                     "title" : "TRAP cache directory",
+2023-11-20T13:46:23.4312429Z                     "description" : "The directory of the TRAP cache to use",
+2023-11-20T13:46:23.4312845Z                     "type" : "string"
+2023-11-20T13:46:23.4313130Z                   },
+2023-11-20T13:46:23.4313363Z                   "bound" : {
+2023-11-20T13:46:23.4313653Z                     "title" : "TRAP cache bound",
+2023-11-20T13:46:23.4314121Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2023-11-20T13:46:23.4314576Z                     "type" : "string",
+2023-11-20T13:46:23.4314935Z                     "pattern" : "[0-9]+"
+2023-11-20T13:46:23.4315234Z                   },
+2023-11-20T13:46:23.4315460Z                   "write" : {
+2023-11-20T13:46:23.4315761Z                     "title" : "TRAP cache writeable",
+2023-11-20T13:46:23.4316264Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2023-11-20T13:46:23.4316733Z                     "type" : "string",
+2023-11-20T13:46:23.4317069Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2023-11-20T13:46:23.4317389Z                   }
+2023-11-20T13:46:23.4317603Z                 }
+2023-11-20T13:46:23.4317809Z               }
+2023-11-20T13:46:23.4318011Z             }
+2023-11-20T13:46:23.4318212Z           }
+2023-11-20T13:46:23.4318399Z         }
+2023-11-20T13:46:23.4318591Z       }
+2023-11-20T13:46:23.4318770Z     ],
+2023-11-20T13:46:23.4318950Z     "python" : [
+2023-11-20T13:46:23.4319163Z       {
+2023-11-20T13:46:23.4319515Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/python"
+2023-11-20T13:46:23.4319951Z       }
+2023-11-20T13:46:23.4320131Z     ],
+2023-11-20T13:46:23.4320314Z     "java" : [
+2023-11-20T13:46:23.4320510Z       {
+2023-11-20T13:46:23.4320857Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/java",
+2023-11-20T13:46:23.4321317Z         "extractor_options" : {
+2023-11-20T13:46:23.4321593Z           "exclude" : {
+2023-11-20T13:46:23.4321917Z             "title" : "A glob excluding files from analysis.",
+2023-11-20T13:46:23.4322473Z             "description" : "A glob indicating what files to exclude from the analysis.\n",
+2023-11-20T13:46:23.4322947Z             "type" : "string"
+2023-11-20T13:46:23.4323204Z           },
+2023-11-20T13:46:23.4323423Z           "add_prefer_source" : {
+2023-11-20T13:46:23.4323837Z             "title" : "Whether to always prefer source files over class files.",
+2023-11-20T13:46:23.4325694Z             "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+2023-11-20T13:46:23.4326999Z             "type" : "string",
+2023-11-20T13:46:23.4327284Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:23.4327572Z           },
+2023-11-20T13:46:23.4327780Z           "buildless" : {
+2023-11-20T13:46:23.4328204Z             "title" : "Whether to use buildless (standalone) extraction (experimental).",
+2023-11-20T13:46:23.4330506Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:23.4332545Z             "type" : "string",
+2023-11-20T13:46:23.4332830Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:23.4333124Z           }
+2023-11-20T13:46:23.4333432Z         }
+2023-11-20T13:46:23.4333620Z       }
+2023-11-20T13:46:23.4333800Z     ],
+2023-11-20T13:46:23.4333979Z     "ruby" : [
+2023-11-20T13:46:23.4334181Z       {
+2023-11-20T13:46:23.4334518Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/ruby",
+2023-11-20T13:46:23.4334966Z         "extractor_options" : {
+2023-11-20T13:46:23.4335238Z           "trap" : {
+2023-11-20T13:46:23.4335518Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:23.4335924Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:23.4336287Z             "type" : "object",
+2023-11-20T13:46:23.4336556Z             "properties" : {
+2023-11-20T13:46:23.4336813Z               "compression" : {
+2023-11-20T13:46:23.4337275Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:23.4338549Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:23.4339500Z                 "type" : "string",
+2023-11-20T13:46:23.4339807Z                 "pattern" : "^(none|gzip)$"
+2023-11-20T13:46:23.4340108Z               }
+2023-11-20T13:46:23.4340311Z             }
+2023-11-20T13:46:23.4340509Z           }
+2023-11-20T13:46:23.4340698Z         }
+2023-11-20T13:46:23.4340876Z       }
+2023-11-20T13:46:23.4341053Z     ],
+2023-11-20T13:46:23.4341246Z     "properties" : [
+2023-11-20T13:46:23.4341464Z       {
+2023-11-20T13:46:23.4341834Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/properties"
+2023-11-20T13:46:23.4342287Z       }
+2023-11-20T13:46:23.4342462Z     ],
+2023-11-20T13:46:23.4342645Z     "swift" : [
+2023-11-20T13:46:23.4342847Z       {
+2023-11-20T13:46:23.4343170Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/swift"
+2023-11-20T13:46:23.4343596Z       }
+2023-11-20T13:46:23.4343768Z     ],
+2023-11-20T13:46:23.4343948Z     "yaml" : [
+2023-11-20T13:46:23.4344146Z       {
+2023-11-20T13:46:23.4344468Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/yaml"
+2023-11-20T13:46:23.4344881Z       }
+2023-11-20T13:46:23.4345054Z     ],
+2023-11-20T13:46:23.4345233Z     "csv" : [
+2023-11-20T13:46:23.4345423Z       {
+2023-11-20T13:46:23.4345746Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csv"
+2023-11-20T13:46:23.4346160Z       }
+2023-11-20T13:46:23.4346328Z     ],
+2023-11-20T13:46:23.4346508Z     "html" : [
+2023-11-20T13:46:23.4346708Z       {
+2023-11-20T13:46:23.4347027Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/html"
+2023-11-20T13:46:23.4347444Z       }
+2023-11-20T13:46:23.4347610Z     ]
+2023-11-20T13:46:23.4347783Z   }
+2023-11-20T13:46:23.4347954Z }
+2023-11-20T13:46:23.4479513Z Detected no issues with the code scanning workflow.
+2023-11-20T13:46:23.4480813Z ##[endgroup]
+2023-11-20T13:46:23.4482615Z ##[group]Load language configuration
+2023-11-20T13:46:23.4491595Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql resolve languages --format=betterjson --extractor-options-verbosity=4 --extractor-include-aliases
+2023-11-20T13:46:24.1822807Z {
+2023-11-20T13:46:24.1823729Z   "aliases" : {
+2023-11-20T13:46:24.1824305Z     "c" : "cpp",
+2023-11-20T13:46:24.1824679Z     "c++" : "cpp",
+2023-11-20T13:46:24.1825271Z     "c-c++" : "cpp",
+2023-11-20T13:46:24.1825776Z     "c-cpp" : "cpp",
+2023-11-20T13:46:24.1826170Z     "c#" : "csharp",
+2023-11-20T13:46:24.1826617Z     "java-kotlin" : "java",
+2023-11-20T13:46:24.1827061Z     "kotlin" : "java",
+2023-11-20T13:46:24.1827602Z     "javascript-typescript" : "javascript",
+2023-11-20T13:46:24.1828174Z     "typescript" : "javascript"
+2023-11-20T13:46:24.1829296Z   },
+2023-11-20T13:46:24.1829610Z   "extractors" : {
+2023-11-20T13:46:24.1829966Z     "xml" : [
+2023-11-20T13:46:24.1830291Z       {
+2023-11-20T13:46:24.1830846Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/xml"
+2023-11-20T13:46:24.1831795Z       }
+2023-11-20T13:46:24.1832102Z     ],
+2023-11-20T13:46:24.1832415Z     "csharp" : [
+2023-11-20T13:46:24.1832827Z       {
+2023-11-20T13:46:24.1833418Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csharp",
+2023-11-20T13:46:24.1834221Z         "extractor_options" : {
+2023-11-20T13:46:24.1834695Z           "trap" : {
+2023-11-20T13:46:24.1835171Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:24.1835918Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:24.1836572Z             "type" : "object",
+2023-11-20T13:46:24.1837050Z             "properties" : {
+2023-11-20T13:46:24.1837523Z               "compression" : {
+2023-11-20T13:46:24.1838344Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:24.1840793Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:24.1842679Z                 "type" : "string",
+2023-11-20T13:46:24.1843220Z                 "pattern" : "^(none|gzip|brotli)$"
+2023-11-20T13:46:24.1843754Z               }
+2023-11-20T13:46:24.1844344Z             }
+2023-11-20T13:46:24.1844683Z           },
+2023-11-20T13:46:24.1845034Z           "buildless" : {
+2023-11-20T13:46:24.1845664Z             "title" : "Whether to use buildless (standalone) extraction.",
+2023-11-20T13:46:24.1849958Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:24.1853474Z             "type" : "string",
+2023-11-20T13:46:24.1853975Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:24.1854474Z           },
+2023-11-20T13:46:24.1854810Z           "cil" : {
+2023-11-20T13:46:24.1855301Z             "title" : "Whether to enable CIL extraction.",
+2023-11-20T13:46:24.1856600Z             "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+2023-11-20T13:46:24.1857646Z             "type" : "string",
+2023-11-20T13:46:24.1858160Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:24.1858669Z           }
+2023-11-20T13:46:24.1858985Z         }
+2023-11-20T13:46:24.1859296Z       }
+2023-11-20T13:46:24.1859588Z     ],
+2023-11-20T13:46:24.1859909Z     "cpp" : [
+2023-11-20T13:46:24.1860248Z       {
+2023-11-20T13:46:24.1860810Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/cpp"
+2023-11-20T13:46:24.1861558Z       }
+2023-11-20T13:46:24.1861862Z     ],
+2023-11-20T13:46:24.1862164Z     "go" : [
+2023-11-20T13:46:24.1862499Z       {
+2023-11-20T13:46:24.1863064Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/go"
+2023-11-20T13:46:24.1863805Z       }
+2023-11-20T13:46:24.1864948Z     ],
+2023-11-20T13:46:24.1865298Z     "javascript" : [
+2023-11-20T13:46:24.1865675Z       {
+2023-11-20T13:46:24.1866520Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/javascript",
+2023-11-20T13:46:24.1867374Z         "extractor_options" : {
+2023-11-20T13:46:24.1867836Z           "trap" : {
+2023-11-20T13:46:24.1868255Z             "title" : "TRAP options",
+2023-11-20T13:46:24.1869015Z             "description" : "Options about how the extractor handles TRAP files",
+2023-11-20T13:46:24.1870053Z             "type" : "object",
+2023-11-20T13:46:24.1870516Z             "visibility" : 3,
+2023-11-20T13:46:24.1870974Z             "properties" : {
+2023-11-20T13:46:24.1871427Z               "cache" : {
+2023-11-20T13:46:24.1871910Z                 "title" : "TRAP cache options",
+2023-11-20T13:46:24.1872976Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2023-11-20T13:46:24.1873779Z                 "type" : "object",
+2023-11-20T13:46:24.1874387Z                 "properties" : {
+2023-11-20T13:46:24.1874946Z                   "dir" : {
+2023-11-20T13:46:24.1876616Z                     "title" : "TRAP cache directory",
+2023-11-20T13:46:24.1877456Z                     "description" : "The directory of the TRAP cache to use",
+2023-11-20T13:46:24.1878198Z                     "type" : "string"
+2023-11-20T13:46:24.1878686Z                   },
+2023-11-20T13:46:24.1879071Z                   "bound" : {
+2023-11-20T13:46:24.1879576Z                     "title" : "TRAP cache bound",
+2023-11-20T13:46:24.1880415Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2023-11-20T13:46:24.1881220Z                     "type" : "string",
+2023-11-20T13:46:24.1881885Z                     "pattern" : "[0-9]+"
+2023-11-20T13:46:24.1882398Z                   },
+2023-11-20T13:46:24.1882798Z                   "write" : {
+2023-11-20T13:46:24.1883324Z                     "title" : "TRAP cache writeable",
+2023-11-20T13:46:24.1884395Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2023-11-20T13:46:24.1885254Z                     "type" : "string",
+2023-11-20T13:46:24.1885863Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2023-11-20T13:46:24.1886451Z                   }
+2023-11-20T13:46:24.1886808Z                 }
+2023-11-20T13:46:24.1887161Z               }
+2023-11-20T13:46:24.1887504Z             }
+2023-11-20T13:46:24.1887835Z           }
+2023-11-20T13:46:24.1888155Z         }
+2023-11-20T13:46:24.1888478Z       }
+2023-11-20T13:46:24.1888776Z     ],
+2023-11-20T13:46:24.1889098Z     "python" : [
+2023-11-20T13:46:24.1889451Z       {
+2023-11-20T13:46:24.1890055Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/python"
+2023-11-20T13:46:24.1890831Z       }
+2023-11-20T13:46:24.1891141Z     ],
+2023-11-20T13:46:24.1891473Z     "java" : [
+2023-11-20T13:46:24.1891858Z       {
+2023-11-20T13:46:24.1892498Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/java",
+2023-11-20T13:46:24.1893329Z         "extractor_options" : {
+2023-11-20T13:46:24.1893804Z           "exclude" : {
+2023-11-20T13:46:24.1894335Z             "title" : "A glob excluding files from analysis.",
+2023-11-20T13:46:24.1895294Z             "description" : "A glob indicating what files to exclude from the analysis.\n",
+2023-11-20T13:46:24.1896144Z             "type" : "string"
+2023-11-20T13:46:24.1896586Z           },
+2023-11-20T13:46:24.1896946Z           "add_prefer_source" : {
+2023-11-20T13:46:24.1897673Z             "title" : "Whether to always prefer source files over class files.",
+2023-11-20T13:46:24.1900634Z             "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+2023-11-20T13:46:24.1902985Z             "type" : "string",
+2023-11-20T13:46:24.1903473Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:24.1903980Z           },
+2023-11-20T13:46:24.1904326Z           "buildless" : {
+2023-11-20T13:46:24.1905041Z             "title" : "Whether to use buildless (standalone) extraction (experimental).",
+2023-11-20T13:46:24.1909428Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:24.1913222Z             "type" : "string",
+2023-11-20T13:46:24.1913923Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:24.1914443Z           }
+2023-11-20T13:46:24.1914768Z         }
+2023-11-20T13:46:24.1915077Z       }
+2023-11-20T13:46:24.1915382Z     ],
+2023-11-20T13:46:24.1915697Z     "ruby" : [
+2023-11-20T13:46:24.1916063Z       {
+2023-11-20T13:46:24.1916656Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/ruby",
+2023-11-20T13:46:24.1917464Z         "extractor_options" : {
+2023-11-20T13:46:24.1917942Z           "trap" : {
+2023-11-20T13:46:24.1918419Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:24.1919128Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:24.1919765Z             "type" : "object",
+2023-11-20T13:46:24.1920251Z             "properties" : {
+2023-11-20T13:46:24.1920710Z               "compression" : {
+2023-11-20T13:46:24.1921510Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:24.1923868Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:24.1925852Z                 "type" : "string",
+2023-11-20T13:46:24.1926393Z                 "pattern" : "^(none|gzip)$"
+2023-11-20T13:46:24.1926923Z               }
+2023-11-20T13:46:24.1927260Z             }
+2023-11-20T13:46:24.1927593Z           }
+2023-11-20T13:46:24.1927915Z         }
+2023-11-20T13:46:24.1928223Z       }
+2023-11-20T13:46:24.1928524Z     ],
+2023-11-20T13:46:24.1928850Z     "properties" : [
+2023-11-20T13:46:24.1929234Z       {
+2023-11-20T13:46:24.1929871Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/properties"
+2023-11-20T13:46:24.1930691Z       }
+2023-11-20T13:46:24.1930991Z     ],
+2023-11-20T13:46:24.1931306Z     "swift" : [
+2023-11-20T13:46:24.1931657Z       {
+2023-11-20T13:46:24.1932235Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/swift"
+2023-11-20T13:46:24.1933011Z       }
+2023-11-20T13:46:24.1933316Z     ],
+2023-11-20T13:46:24.1933621Z     "yaml" : [
+2023-11-20T13:46:24.1933963Z       {
+2023-11-20T13:46:24.1934535Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/yaml"
+2023-11-20T13:46:24.1935278Z       }
+2023-11-20T13:46:24.1935584Z     ],
+2023-11-20T13:46:24.1935894Z     "csv" : [
+2023-11-20T13:46:24.1936219Z       {
+2023-11-20T13:46:24.1936785Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csv"
+2023-11-20T13:46:24.1937530Z       }
+2023-11-20T13:46:24.1937825Z     ],
+2023-11-20T13:46:24.1938135Z     "html" : [
+2023-11-20T13:46:24.1938467Z       {
+2023-11-20T13:46:24.1939038Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/html"
+2023-11-20T13:46:24.1939800Z       }
+2023-11-20T13:46:24.1940097Z     ]
+2023-11-20T13:46:24.1940394Z   }
+2023-11-20T13:46:24.1940685Z }
+2023-11-20T13:46:24.2069421Z Languages from configuration: javascript
+2023-11-20T13:46:24.2075809Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql resolve queries javascript-code-scanning.qls --format=bylanguage
+2023-11-20T13:46:25.1762157Z Recording pack reference codeql/javascript-queries at /opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2.
+2023-11-20T13:46:25.3096263Z Recording pack reference codeql/suite-helpers at /opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/.codeql/libraries/codeql/suite-helpers/0.7.2.
+2023-11-20T13:46:26.9494204Z {
+2023-11-20T13:46:26.9494935Z   "byLanguage" : {
+2023-11-20T13:46:26.9495478Z     "javascript" : {
+2023-11-20T13:46:26.9497278Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Electron/AllowRunningInsecureContent.ql" : { },
+2023-11-20T13:46:26.9500259Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Electron/DisablingWebSecurity.ql" : { },
+2023-11-20T13:46:26.9502674Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Performance/PolynomialReDoS.ql" : { },
+2023-11-20T13:46:26.9505211Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Performance/ReDoS.ql" : { },
+2023-11-20T13:46:26.9507360Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/DOM/TargetBlank.ql" : { },
+2023-11-20T13:46:26.9509628Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/RegExp/IdentityReplacement.ql" : { },
+2023-11-20T13:46:26.9511986Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/AngularJS/DoubleCompilation.ql" : { },
+2023-11-20T13:46:26.9514289Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/AngularJS/DisablingSce.ql" : { },
+2023-11-20T13:46:26.9516526Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/AngularJS/InsecureUrlWhitelist.ql" : { },
+2023-11-20T13:46:26.9518937Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-352/MissingCsrfMiddleware.ql" : { },
+2023-11-20T13:46:26.9521360Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-798/HardcodedCredentials.ql" : { },
+2023-11-20T13:46:26.9523709Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-730/ServerCrash.ql" : { },
+2023-11-20T13:46:26.9526354Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-730/RegExpInjection.ql" : { },
+2023-11-20T13:46:26.9528826Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/IncompleteUrlSchemeCheck.ql" : { },
+2023-11-20T13:46:26.9531379Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/IncompleteHostnameRegExp.ql" : { },
+2023-11-20T13:46:26.9533914Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/IncorrectSuffixCheck.ql" : { },
+2023-11-20T13:46:26.9536508Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/UselessRegExpCharacterEscape.ql" : { },
+2023-11-20T13:46:26.9539566Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/IncompleteUrlSubstringSanitization.ql" : { },
+2023-11-20T13:46:26.9542532Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-020/OverlyLargeRange.ql" : { },
+2023-11-20T13:46:26.9544995Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-611/Xxe.ql" : { },
+2023-11-20T13:46:26.9547387Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-601/ClientSideUrlRedirect.ql" : { },
+2023-11-20T13:46:26.9549972Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-601/ServerSideUrlRedirect.ql" : { },
+2023-11-20T13:46:26.9552462Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-312/CleartextStorage.ql" : { },
+2023-11-20T13:46:26.9554944Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-312/BuildArtifactLeak.ql" : { },
+2023-11-20T13:46:26.9557444Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-312/CleartextLogging.ql" : { },
+2023-11-20T13:46:26.9560320Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-078/SecondOrderCommandInjection.ql" : { },
+2023-11-20T13:46:26.9564696Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-078/CommandInjection.ql" : { },
+2023-11-20T13:46:26.9567593Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-078/UnsafeShellCommandConstruction.ql" : { },
+2023-11-20T13:46:26.9571550Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-078/ShellCommandInjectionFromEnvironment.ql" : { },
+2023-11-20T13:46:26.9574071Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-078/UselessUseOfCat.ql" : { },
+2023-11-20T13:46:26.9577371Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-327/BrokenCryptoAlgorithm.ql" : { },
+2023-11-20T13:46:26.9579984Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-327/BadRandomness.ql" : { },
+2023-11-20T13:46:26.9582161Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-022/ZipSlip.ql" : { },
+2023-11-20T13:46:26.9584291Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-022/TaintedPath.ql" : { },
+2023-11-20T13:46:26.9586580Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/UnsafeHtmlConstruction.ql" : { },
+2023-11-20T13:46:26.9588904Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/XssThroughDom.ql" : { },
+2023-11-20T13:46:26.9591238Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/ExceptionXss.ql" : { },
+2023-11-20T13:46:26.9593517Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/StoredXss.ql" : { },
+2023-11-20T13:46:26.9595791Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/ReflectedXss.ql" : { },
+2023-11-20T13:46:26.9598156Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/UnsafeJQueryPlugin.ql" : { },
+2023-11-20T13:46:26.9600398Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-079/Xss.ql" : { },
+2023-11-20T13:46:26.9602728Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-916/InsufficientPasswordHash.ql" : { },
+2023-11-20T13:46:26.9605680Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-843/TypeConfusionThroughParameterTampering.ql" : { },
+2023-11-20T13:46:26.9608415Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-347/MissingJWTKeyVerification.ql" : { },
+2023-11-20T13:46:26.9610894Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-643/XpathInjection.ql" : { },
+2023-11-20T13:46:26.9613247Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-614/ClearTextCookie.ql" : { },
+2023-11-20T13:46:26.9615657Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-770/MissingRateLimiting.ql" : { },
+2023-11-20T13:46:26.9618116Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-770/ResourceExhaustion.ql" : { },
+2023-11-20T13:46:26.9620641Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-915/PrototypePollutingAssignment.ql" : { },
+2023-11-20T13:46:26.9623240Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-915/PrototypePollutingFunction.ql" : { },
+2023-11-20T13:46:26.9626133Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-915/PrototypePollutingMergeCall.ql" : { },
+2023-11-20T13:46:26.9628829Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-201/PostMessageStar.ql" : { },
+2023-11-20T13:46:26.9631129Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/DoubleEscaping.ql" : { },
+2023-11-20T13:46:26.9633664Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/IncompleteMultiCharacterSanitization.ql" : { },
+2023-11-20T13:46:26.9636431Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/IncompleteHtmlAttributeSanitization.ql" : { },
+2023-11-20T13:46:26.9638984Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/IncompleteSanitization.ql" : { },
+2023-11-20T13:46:26.9641382Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/BadTagFilter.ql" : { },
+2023-11-20T13:46:26.9643727Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-116/UnsafeHtmlExpansion.ql" : { },
+2023-11-20T13:46:26.9646531Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-346/CorsMisconfigurationForCredentials.ql" : { },
+2023-11-20T13:46:26.9649034Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-598/SensitiveGetQuery.ql" : { },
+2023-11-20T13:46:26.9651377Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-1004/ClientExposedCookie.ql" : { },
+2023-11-20T13:46:26.9653935Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-640/HostHeaderPoisoningInEmailGeneration.ql" : { },
+2023-11-20T13:46:26.9657161Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-073/TemplateObjectInjection.ql" : { },
+2023-11-20T13:46:26.9659453Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-776/XmlBomb.ql" : { },
+2023-11-20T13:46:26.9661837Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-400/DeepObjectResourceExhaustion.ql" : { },
+2023-11-20T13:46:26.9664317Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-338/InsecureRandomness.ql" : { },
+2023-11-20T13:46:26.9666912Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-830/FunctionalityFromUntrustedSource.ql" : { },
+2023-11-20T13:46:26.9669519Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-094/ImproperCodeSanitization.ql" : { },
+2023-11-20T13:46:26.9671883Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-094/CodeInjection.ql" : { },
+2023-11-20T13:46:26.9674313Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-094/UnsafeDynamicMethodAccess.ql" : { },
+2023-11-20T13:46:26.9676823Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-094/ExpressionInjection.ql" : { },
+2023-11-20T13:46:26.9679272Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-834/LoopBoundInjection.ql" : { },
+2023-11-20T13:46:26.9681737Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-200/PrivateFileExposure.ql" : { },
+2023-11-20T13:46:26.9684540Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-918/RequestForgery.ql" : { },
+2023-11-20T13:46:26.9685863Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-209/StackTraceExposure.ql" : { },
+2023-11-20T13:46:26.9687313Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-089/SqlInjection.ql" : { },
+2023-11-20T13:46:26.9688598Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-326/InsufficientKeySize.ql" : { },
+2023-11-20T13:46:26.9689959Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-754/UnvalidatedDynamicMethodCall.ql" : { },
+2023-11-20T13:46:26.9691398Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-295/DisablingCertificateValidation.ql" : { },
+2023-11-20T13:46:26.9692778Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-134/TaintedFormatString.ql" : { },
+2023-11-20T13:46:26.9694074Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-829/InsecureDownload.ql" : { },
+2023-11-20T13:46:26.9695414Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-300/InsecureDependencyResolution.ql" : { },
+2023-11-20T13:46:26.9696827Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-178/CaseSensitiveMiddlewarePath.ql" : { },
+2023-11-20T13:46:26.9698205Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Security/CWE-502/UnsafeDeserialization.ql" : { },
+2023-11-20T13:46:26.9699547Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Diagnostics/SuccessfullyExtractedFiles.ql" : { },
+2023-11-20T13:46:26.9700844Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Diagnostics/ExtractionErrors.ql" : { },
+2023-11-20T13:46:26.9702034Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Summary/LinesOfCode.ql" : { },
+2023-11-20T13:46:26.9703202Z       "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/qlpacks/codeql/javascript-queries/0.8.2/Summary/LinesOfUserCode.ql" : { }
+2023-11-20T13:46:26.9703875Z     }
+2023-11-20T13:46:26.9704054Z   },
+2023-11-20T13:46:26.9704258Z   "noDeclaredLanguage" : { },
+2023-11-20T13:46:26.9704561Z   "multipleDeclaredLanguages" : { }
+2023-11-20T13:46:26.9704851Z }
+2023-11-20T13:46:26.9862188Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql resolve languages --format=betterjson --extractor-options-verbosity=4 --extractor-include-aliases
+2023-11-20T13:46:27.6972551Z {
+2023-11-20T13:46:27.6973024Z   "aliases" : {
+2023-11-20T13:46:27.6973571Z     "c" : "cpp",
+2023-11-20T13:46:27.6973994Z     "c++" : "cpp",
+2023-11-20T13:46:27.6974621Z     "c-c++" : "cpp",
+2023-11-20T13:46:27.6975091Z     "c-cpp" : "cpp",
+2023-11-20T13:46:27.6975518Z     "c#" : "csharp",
+2023-11-20T13:46:27.6976041Z     "java-kotlin" : "java",
+2023-11-20T13:46:27.6976515Z     "kotlin" : "java",
+2023-11-20T13:46:27.6977107Z     "javascript-typescript" : "javascript",
+2023-11-20T13:46:27.6977770Z     "typescript" : "javascript"
+2023-11-20T13:46:27.6978259Z   },
+2023-11-20T13:46:27.6978610Z   "extractors" : {
+2023-11-20T13:46:27.6979016Z     "xml" : [
+2023-11-20T13:46:27.6979364Z       {
+2023-11-20T13:46:27.6979952Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/xml"
+2023-11-20T13:46:27.6980732Z       }
+2023-11-20T13:46:27.6981068Z     ],
+2023-11-20T13:46:27.6981430Z     "csharp" : [
+2023-11-20T13:46:27.6981812Z       {
+2023-11-20T13:46:27.6982444Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csharp",
+2023-11-20T13:46:27.6983803Z         "extractor_options" : {
+2023-11-20T13:46:27.6984327Z           "trap" : {
+2023-11-20T13:46:27.6984864Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:27.6985642Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:27.6986333Z             "type" : "object",
+2023-11-20T13:46:27.6987208Z             "properties" : {
+2023-11-20T13:46:27.6987739Z               "compression" : {
+2023-11-20T13:46:27.6988576Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:27.6991079Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:27.6992926Z                 "type" : "string",
+2023-11-20T13:46:27.6993505Z                 "pattern" : "^(none|gzip|brotli)$"
+2023-11-20T13:46:27.6994079Z               }
+2023-11-20T13:46:27.6994450Z             }
+2023-11-20T13:46:27.6994803Z           },
+2023-11-20T13:46:27.6995155Z           "buildless" : {
+2023-11-20T13:46:27.6995832Z             "title" : "Whether to use buildless (standalone) extraction.",
+2023-11-20T13:46:27.7000062Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:27.7003612Z             "type" : "string",
+2023-11-20T13:46:27.7004311Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:27.7004862Z           },
+2023-11-20T13:46:27.7005221Z           "cil" : {
+2023-11-20T13:46:27.7005716Z             "title" : "Whether to enable CIL extraction.",
+2023-11-20T13:46:27.7007033Z             "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+2023-11-20T13:46:27.7008122Z             "type" : "string",
+2023-11-20T13:46:27.7008661Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:27.7009197Z           }
+2023-11-20T13:46:27.7009531Z         }
+2023-11-20T13:46:27.7009849Z       }
+2023-11-20T13:46:27.7010164Z     ],
+2023-11-20T13:46:27.7010491Z     "cpp" : [
+2023-11-20T13:46:27.7010838Z       {
+2023-11-20T13:46:27.7011431Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/cpp"
+2023-11-20T13:46:27.7012195Z       }
+2023-11-20T13:46:27.7012504Z     ],
+2023-11-20T13:46:27.7012828Z     "go" : [
+2023-11-20T13:46:27.7013172Z       {
+2023-11-20T13:46:27.7013743Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/go"
+2023-11-20T13:46:27.7014498Z       }
+2023-11-20T13:46:27.7014812Z     ],
+2023-11-20T13:46:27.7015147Z     "javascript" : [
+2023-11-20T13:46:27.7015548Z       {
+2023-11-20T13:46:27.7016198Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/javascript",
+2023-11-20T13:46:27.7017069Z         "extractor_options" : {
+2023-11-20T13:46:27.7017564Z           "trap" : {
+2023-11-20T13:46:27.7017993Z             "title" : "TRAP options",
+2023-11-20T13:46:27.7018778Z             "description" : "Options about how the extractor handles TRAP files",
+2023-11-20T13:46:27.7019601Z             "type" : "object",
+2023-11-20T13:46:27.7020090Z             "visibility" : 3,
+2023-11-20T13:46:27.7020564Z             "properties" : {
+2023-11-20T13:46:27.7021041Z               "cache" : {
+2023-11-20T13:46:27.7021561Z                 "title" : "TRAP cache options",
+2023-11-20T13:46:27.7022434Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2023-11-20T13:46:27.7023266Z                 "type" : "object",
+2023-11-20T13:46:27.7023784Z                 "properties" : {
+2023-11-20T13:46:27.7024266Z                   "dir" : {
+2023-11-20T13:46:27.7025053Z                     "title" : "TRAP cache directory",
+2023-11-20T13:46:27.7025827Z                     "description" : "The directory of the TRAP cache to use",
+2023-11-20T13:46:27.7026588Z                     "type" : "string"
+2023-11-20T13:46:27.7027097Z                   },
+2023-11-20T13:46:27.7027730Z                   "bound" : {
+2023-11-20T13:46:27.7028240Z                     "title" : "TRAP cache bound",
+2023-11-20T13:46:27.7029065Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2023-11-20T13:46:27.7029890Z                     "type" : "string",
+2023-11-20T13:46:27.7030555Z                     "pattern" : "[0-9]+"
+2023-11-20T13:46:27.7031084Z                   },
+2023-11-20T13:46:27.7031486Z                   "write" : {
+2023-11-20T13:46:27.7032024Z                     "title" : "TRAP cache writeable",
+2023-11-20T13:46:27.7032921Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2023-11-20T13:46:27.7033812Z                     "type" : "string",
+2023-11-20T13:46:27.7034428Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2023-11-20T13:46:27.7035041Z                   }
+2023-11-20T13:46:27.7035422Z                 }
+2023-11-20T13:46:27.7036801Z               }
+2023-11-20T13:46:27.7037209Z             }
+2023-11-20T13:46:27.7037559Z           }
+2023-11-20T13:46:27.7037879Z         }
+2023-11-20T13:46:27.7038200Z       }
+2023-11-20T13:46:27.7038512Z     ],
+2023-11-20T13:46:27.7038833Z     "python" : [
+2023-11-20T13:46:27.7039208Z       {
+2023-11-20T13:46:27.7039818Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/python"
+2023-11-20T13:46:27.7040595Z       }
+2023-11-20T13:46:27.7040911Z     ],
+2023-11-20T13:46:27.7041229Z     "java" : [
+2023-11-20T13:46:27.7041585Z       {
+2023-11-20T13:46:27.7042205Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/java",
+2023-11-20T13:46:27.7043027Z         "extractor_options" : {
+2023-11-20T13:46:27.7043534Z           "exclude" : {
+2023-11-20T13:46:27.7044394Z             "title" : "A glob excluding files from analysis.",
+2023-11-20T13:46:27.7045412Z             "description" : "A glob indicating what files to exclude from the analysis.\n",
+2023-11-20T13:46:27.7046287Z             "type" : "string"
+2023-11-20T13:46:27.7046751Z           },
+2023-11-20T13:46:27.7047144Z           "add_prefer_source" : {
+2023-11-20T13:46:27.7047877Z             "title" : "Whether to always prefer source files over class files.",
+2023-11-20T13:46:27.7057268Z             "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+2023-11-20T13:46:27.7059661Z             "type" : "string",
+2023-11-20T13:46:27.7060165Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:27.7060660Z           },
+2023-11-20T13:46:27.7061069Z           "buildless" : {
+2023-11-20T13:46:27.7061798Z             "title" : "Whether to use buildless (standalone) extraction (experimental).",
+2023-11-20T13:46:27.7066563Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2023-11-20T13:46:27.7070005Z             "type" : "string",
+2023-11-20T13:46:27.7070506Z             "pattern" : "^(false|true)$"
+2023-11-20T13:46:27.7071019Z           }
+2023-11-20T13:46:27.7071332Z         }
+2023-11-20T13:46:27.7071646Z       }
+2023-11-20T13:46:27.7071947Z     ],
+2023-11-20T13:46:27.7072254Z     "ruby" : [
+2023-11-20T13:46:27.7072591Z       {
+2023-11-20T13:46:27.7073448Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/ruby",
+2023-11-20T13:46:27.7074254Z         "extractor_options" : {
+2023-11-20T13:46:27.7074719Z           "trap" : {
+2023-11-20T13:46:27.7075189Z             "title" : "Options pertaining to TRAP.",
+2023-11-20T13:46:27.7076118Z             "description" : "Options pertaining to TRAP.",
+2023-11-20T13:46:27.7076756Z             "type" : "object",
+2023-11-20T13:46:27.7077222Z             "properties" : {
+2023-11-20T13:46:27.7077677Z               "compression" : {
+2023-11-20T13:46:27.7078474Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2023-11-20T13:46:27.7080815Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+2023-11-20T13:46:27.7082586Z                 "type" : "string",
+2023-11-20T13:46:27.7083106Z                 "pattern" : "^(none|gzip)$"
+2023-11-20T13:46:27.7083637Z               }
+2023-11-20T13:46:27.7084180Z             }
+2023-11-20T13:46:27.7084522Z           }
+2023-11-20T13:46:27.7084838Z         }
+2023-11-20T13:46:27.7085142Z       }
+2023-11-20T13:46:27.7085451Z     ],
+2023-11-20T13:46:27.7085794Z     "properties" : [
+2023-11-20T13:46:27.7086173Z       {
+2023-11-20T13:46:27.7086811Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/properties"
+2023-11-20T13:46:27.7087622Z       }
+2023-11-20T13:46:27.7087922Z     ],
+2023-11-20T13:46:27.7088238Z     "swift" : [
+2023-11-20T13:46:27.7088586Z       {
+2023-11-20T13:46:27.7089149Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/swift"
+2023-11-20T13:46:27.7089892Z       }
+2023-11-20T13:46:27.7090189Z     ],
+2023-11-20T13:46:27.7090491Z     "yaml" : [
+2023-11-20T13:46:27.7090826Z       {
+2023-11-20T13:46:27.7091388Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/yaml"
+2023-11-20T13:46:27.7092132Z       }
+2023-11-20T13:46:27.7092436Z     ],
+2023-11-20T13:46:27.7092742Z     "csv" : [
+2023-11-20T13:46:27.7093071Z       {
+2023-11-20T13:46:27.7093635Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/csv"
+2023-11-20T13:46:27.7094369Z       }
+2023-11-20T13:46:27.7094668Z     ],
+2023-11-20T13:46:27.7094978Z     "html" : [
+2023-11-20T13:46:27.7095319Z       {
+2023-11-20T13:46:27.7095878Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/html"
+2023-11-20T13:46:27.7096620Z       }
+2023-11-20T13:46:27.7096913Z     ]
+2023-11-20T13:46:27.7097202Z   }
+2023-11-20T13:46:27.7097492Z }
+2023-11-20T13:46:27.7244136Z Found 1 languages that support TRAP caching
+2023-11-20T13:46:27.7313541Z Looking in Actions cache for TRAP cache with key codeql-trap-1-2.15.2-javascript-eeeb3652fc7c66fa379c751a4f1946c0cb564bd5
+2023-11-20T13:46:27.9768491Z No TRAP cache found in Actions cache for javascript
+2023-11-20T13:46:27.9773739Z Code Scanning configuration file being processed in the codeql CLI.
+2023-11-20T13:46:27.9784989Z ##[endgroup]
+2023-11-20T13:46:27.9804534Z Writing augmented user configuration file to /home/runner/work/_temp/user-config.yaml
+2023-11-20T13:46:27.9805961Z ##[group]Augmented user configuration file contents
+2023-11-20T13:46:27.9811284Z {}
+2023-11-20T13:46:27.9811552Z 
+2023-11-20T13:46:27.9812042Z ##[endgroup]
+2023-11-20T13:46:27.9817320Z [command]/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/codeql database init --db-cluster /home/runner/work/_temp/codeql_databases --source-root=/home/runner/work/uploader/uploader --extractor-include-aliases --language=javascript --codescanning-config=/home/runner/work/_temp/user-config.yaml --calculate-language-specific-baseline --sublanguage-file-coverage
+2023-11-20T13:46:29.7834068Z Calculating baseline information in /home/runner/work/uploader/uploader
+2023-11-20T13:46:30.1129036Z Running command in /home/runner/work/uploader/uploader: [/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/javascript/tools/configure-baseline.sh]
+2023-11-20T13:46:30.1742755Z Running command in /home/runner/work/uploader/uploader: [/opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/go/tools/configure-baseline.sh]
+2023-11-20T13:46:30.1882000Z Calculated baseline information for languages: c, go, javascript, swift, typescript (403ms).
+2023-11-20T13:46:30.2956779Z Resolving extractor javascript.
+2023-11-20T13:46:30.2997014Z Successfully loaded extractor JavaScript/TypeScript (javascript) from /opt/hostedtoolcache/CodeQL/2.15.2/x64/codeql/javascript.
+2023-11-20T13:46:30.3321743Z Created skeleton CodeQL database at /home/runner/work/_temp/codeql_databases/javascript. This in-progress database is ready to be populated by an extractor.

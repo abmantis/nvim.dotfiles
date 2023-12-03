@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION;TYPE=WORK:3.0
+FN;CHARSET=UTF-8:Creative Commons
+N;CHARSET=UTF-8:Creative Commons;;;;
+PROFILE:VCARD
+ADR;CHARSET=UTF-8:;;211 Hope St # 1866;Mountain View;CA;94042-8817;USA
+EMAIL:info@creativecommons.org
+ORG;CHARSET=UTF-8:Creative Commons
+URL:https://creativecommons.org
+END:VCARD
