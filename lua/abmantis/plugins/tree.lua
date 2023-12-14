@@ -16,6 +16,7 @@ return {
     }
     local my_utils = require("abmantis.utils")
     my_utils.setkeymap("n", "<leader>pv", vim.cmd.NvimTreeFindFile, "Reveal file in file tree")
+    my_utils.setkeymap("n", "<leader>tt", vim.cmd.NvimTreeToggle, "Toggle file tree")
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
   end,
