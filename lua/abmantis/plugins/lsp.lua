@@ -68,6 +68,9 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+        -- CoPilot only works with utf-8 offset encoding, so restrct it for now
+        capabilities.offsetEncoding = 'utf-8'
+
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
         mason_lspconfig.setup {
