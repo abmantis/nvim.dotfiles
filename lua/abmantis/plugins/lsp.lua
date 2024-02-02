@@ -62,6 +62,13 @@ return {
                     },
                 }
             },
+            nil_ls = {
+                settings = {
+                    ['nil'] = {
+                        formatting = { command = { "nixpkgs-fmt" } }
+                    }
+                }
+            }
         }
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
