@@ -2,6 +2,7 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     cond = not vim.g.vscode,
+    event = "VeryLazy",
     config = function()
         local my_helpers = require('abmantis.plugins.telescope.helpers')
         require('telescope').setup {
