@@ -6,6 +6,11 @@ return {
         'nvim-lua/plenary.nvim',
     },
     config = function()
+        require('harpoon').setup({
+            menu = {
+                width = 80,
+            }
+        })
         local utils = require('abmantis.utils')
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
