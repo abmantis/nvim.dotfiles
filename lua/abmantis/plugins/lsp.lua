@@ -79,20 +79,35 @@ return {
         -- CoPilot only works with utf-8 offset encoding, so restrct it for now
         capabilities.offsetEncoding = 'utf-8'
 
-        -- Ensure the servers above are installed
+        local setup_ls = function(server_name)
+            local server_conf = (servers[server_name] or {})
+            require('lspconfig')[server_name].setup {
+                capabilities = capabilities,
+                init_options = server_conf.init_options,
+                settings = server_conf.settings,
+                filetypes = server_conf.filetypes,
+            }
+        end
+
+        -- LS to setup even without mason installation
+        setup_ls("clangd")
+        setup_ls("lua_ls")
+        setup_ls("nil_ls")
+        setup_ls("pyright")
+        setup_ls("ruff_lsp")
+
+        vim.api.nvim_create_user_command("LspSetup",
+            function(opts)
+                setup_ls(opts.fargs[1])
+            end,
+            { nargs = 1 }
+        )
+
         local mason_lspconfig = require 'mason-lspconfig'
-        mason_lspconfig.setup {
-            --     ensure_installed = vim.tbl_keys(servers),
-        }
+        mason_lspconfig.setup {}
         mason_lspconfig.setup_handlers {
             function(server_name)
-                local server_conf = (servers[server_name] or {})
-                require('lspconfig')[server_name].setup {
-                    capabilities = capabilities,
-                    init_options = server_conf.init_options,
-                    settings = server_conf.settings,
-                    filetypes = server_conf.filetypes,
-                }
+                setup_ls(server_name)
             end
         }
     end,
