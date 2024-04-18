@@ -38,6 +38,13 @@ vim.diagnostic.config({
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd({ 'TextYankPost'}, {
+  callback = function()
+    vim.highlight.on_yank({higroup="IncSearch", timeout=500})
+  end
+})
+
 if not vim.g.vscode then
   -- toggle relativenumber conditionally
   local auGroupUserRelNumberToggle = vim.api.nvim_create_augroup('UserRelNumberToggle', {})
