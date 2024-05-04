@@ -23,6 +23,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.cursorline = true
 vim.opt.colorcolumn = "89"
 vim.opt.termguicolors = true
 
