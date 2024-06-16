@@ -4,9 +4,9 @@ return {
     config = function()
         require("formatter").setup {
             filetype = {
-                python = {
-                    require("formatter.filetypes.python").black,
-                },
+                -- python = {
+                --     require("formatter.filetypes.python").black,
+                -- },
                 ["*"] = {
                     require("formatter.filetypes.any").remove_trailing_whitespace,
                     function()
