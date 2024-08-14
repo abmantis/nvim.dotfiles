@@ -30,3 +30,8 @@ utils.setkeymap('n', '<space>e', vim.diagnostic.open_float, "Show line diagnosti
 utils.setkeymap('n', '[d', vim.diagnostic.goto_prev, "Previous diagnostic message")
 utils.setkeymap('n', ']d', vim.diagnostic.goto_next, "Next diagnostic message")
 -- utils.setkeymap('n', '<space>q', vim.diagnostic.setloclist, "Show file diagnostics")
+utils.setkeymap('n', '<leader>ih',
+	function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	end,
+	"Toggle inlay hints")
