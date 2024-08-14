@@ -14,12 +14,9 @@ utils.setkeymap("t", "<S-Esc>", "<Esc>", "Send <Esc> in terminal mode")
 -- utils.setkeymap("t", "<A-l>", "<C-\\><C-n><c-w>l", "Move to right window")
 
 utils.setkeymap("n", "<leader>pv", vim.cmd.Explore, "Show explorer")
-utils.setkeymap("n", "<C-d>", "<C-d>zz", "Move down 1/2 page")
-utils.setkeymap("n", "<C-u>", "<C-u>zz", "Move up 1/2 page")
-utils.setkeymap("n", "n", "nzzzv", "Next find result")
-utils.setkeymap("n", "N", "Nzzzv", "Previous find result")
 
-utils.setkeymap('x', "<leader>p", "\"_dP", "Paste without yanking")
+utils.setkeymap('x', "<leader>p", "\"_dp", "Paste without yanking")
+utils.setkeymap('x', "<leader>P", "\"_dP", "Paste without yanking")
 
 utils.setkeymap('n', "<leader>sp", "\"+p", "Paste from system clipboard")
 utils.setkeymap('v', "<leader>sp", "\"+p", "Paste from system clipboard")
