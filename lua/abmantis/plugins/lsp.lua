@@ -82,7 +82,7 @@ return {
 
         local setup_ls = function(server_name)
             local server_conf = (servers[server_name] or {})
-            lspconfig[server_name].setup {
+            require('lspconfig')[server_name].setup {
                 -- capabilities = capabilities,
                 init_options = server_conf.init_options,
                 settings = server_conf.settings,
