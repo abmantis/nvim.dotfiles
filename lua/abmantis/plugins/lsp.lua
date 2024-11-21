@@ -95,7 +95,7 @@ return {
         setup_ls("lua_ls")
         setup_ls("nil_ls")
         setup_ls("pyright")
-        setup_ls("ruff_lsp")
+        setup_ls("ruff")
 
         vim.api.nvim_create_user_command("LspSetup",
             function(opts)
