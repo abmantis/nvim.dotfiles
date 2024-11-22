@@ -14,6 +14,7 @@ return {
                         height = { padding = 0 },
                     },
                 },
+                sorting_strategy = "ascending",
             },
             pickers = {
                 current_buffer_tags = { fname_width = 100, },
