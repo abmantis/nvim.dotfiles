@@ -124,8 +124,8 @@ return {
         }
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         -- CoPilot only works with utf-8 offset encoding, so restrct it for now.
         -- This seems to mess up ruff, so use ruff-lsp instead if needed
