@@ -10,7 +10,7 @@ return {
 
         -- Useful status updates for LSP
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        { 'j-hui/fidget.nvim', opts = {} },
+        { 'j-hui/fidget.nvim',       opts = {} },
     },
     config = function()
         -- Use LspAttach autocommand to only map the following keys
@@ -69,6 +69,16 @@ return {
                         formatting = { command = { "nixpkgs-fmt" } }
                     }
                 }
+            },
+            pyright = {
+                settings = {
+                    python = { analysis = { typeCheckingMode = "off" } },
+                }
+            },
+            basedpyright = {
+                settings = {
+                    basedpyright = { analysis = { typeCheckingMode = "off" } },
+                }
             }
         }
 
@@ -89,7 +99,7 @@ return {
         setup_ls("clangd")
         setup_ls("lua_ls")
         setup_ls("nil_ls")
-        setup_ls("pyright")
+        setup_ls("basedpyright")
         setup_ls("ruff")
 
         vim.api.nvim_create_user_command("LspSetup",
