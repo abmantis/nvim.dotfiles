@@ -72,6 +72,7 @@ return {
             }
         }
 
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
         local lspconfig = require('lspconfig')
         local setup_ls = function(server_name)
             local server_conf = (servers[server_name] or {})
