@@ -1,6 +1,7 @@
 return {
     'mhartington/formatter.nvim',
     event = "VeryLazy",
+    cond = not vim.g.vscode,
     config = function()
         require("formatter").setup {
             filetype = {

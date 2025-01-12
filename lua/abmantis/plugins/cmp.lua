@@ -3,6 +3,7 @@ return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
   dependencies = 'rafamadriz/friendly-snippets',
+  cond = not vim.g.vscode,
 
   -- use a release tag to download pre-built binaries
   version = 'v0.*',

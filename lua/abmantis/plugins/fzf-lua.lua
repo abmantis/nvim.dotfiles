@@ -4,6 +4,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   -- or if using mini.icons/mini.nvim
   -- dependencies = { "echasnovski/mini.icons" },
+  cond = not vim.g.vscode,
   opts = {},
   config = function()
     local fzf_lua = require("fzf-lua")
