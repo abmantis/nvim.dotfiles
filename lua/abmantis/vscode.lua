@@ -4,6 +4,13 @@ end
 
 local vsc = require("vscode")
 
+vim.keymap.set('n', '<leader>cf', function()
+    vsc.action('editor.action.formatDocument', {})
+end)
+vim.keymap.set('v', '<leader>cf', function()
+    vsc.action('editor.action.formatSelection', {})
+end)
+
 vim.keymap.set("n", "<leader>pv", function()
     vsc.action('workbench.files.action.showActiveFileInExplorer', {})
 end)
@@ -21,6 +28,13 @@ vim.keymap.set("x", "<leader>ps", function()
     vim.defer_fn(function()
         vsc.action('workbench.action.findInFiles', { args = { query = vim.fn.getreg('p'), replace = '' } })
     end, 1)
+end)
+
+vim.keymap.set('n', '<leader>rn', function()
+    vsc.action('editor.action.rename', {})
+end)
+vim.keymap.set('n', '<leader>ca', function()
+    vsc.action('editor.action.quickFix', {})
 end)
 
 vim.keymap.set('n', 'gr', function()
