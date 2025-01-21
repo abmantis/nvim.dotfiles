@@ -11,7 +11,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-          { 'filename', newfile_status = true, path = 0, },
+          { 'filename', newfile_status = true, path = 1, },
           'diagnostics'
         },
         lualine_c = {},
@@ -20,7 +20,7 @@ return {
         lualine_z = { 'location' }
       },
       inactive_sections = {
-        lualine_c = { { 'filename', newfile_status = true, path = 0, } },
+        lualine_c = { { 'filename', newfile_status = true, path = 1, } },
       },
       winbar = {
         lualine_c = {
