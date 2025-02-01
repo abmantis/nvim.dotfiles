@@ -1,32 +1,46 @@
 return {
-  "nvim-tree/nvim-tree.lua",
+  "nvim-neo-tree/neo-tree.nvim",
   cond = not vim.g.vscode,
-  version = "*",
-  lazy = false,
+  event = "VeryLazy",
+  branch = "v3.x",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "MunifTanjim/nui.nvim",
+    -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
-    require("nvim-tree").setup {
-      update_focused_file = {
-        enable = true,
+    require("neo-tree").setup({
+      close_if_last_window = true,
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+        },
       },
-      view = {
-        width = 45,
-        number = true,
-        relativenumber = true,
+      buffers = {
+        follow_current_file = {
+          enabled = true,
+        },
       },
-      hijack_directories = {
-        enable = false,
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function(arg)
+            vim.opt.relativenumber = true
+          end,
+        }
       },
-    }
+    })
 
     local my_utils = require("abmantis.utils")
-    my_utils.setkeymap("n", "<leader>pv", vim.cmd.NvimTreeFindFile, "Reveal file in file tree")
-    my_utils.setkeymap("n", "<leader>tt", vim.cmd.NvimTreeToggle, "Toggle file tree")
-    -- vim.cmd.NvimTreeToggle()
+
+    my_utils.setkeymap("n", "<leader>pv",
+      function()
+        vim.cmd.Neotree("reveal")
+      end, "Reveal file in file tree")
+
+    my_utils.setkeymap("n", "<leader>tt", function()
+      vim.cmd.Neotree("toggle")
+    end, "Toggle file tree")
   end,
 }
