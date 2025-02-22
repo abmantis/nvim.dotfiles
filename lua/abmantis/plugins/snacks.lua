@@ -12,6 +12,12 @@ return {
     notifier = {
       enabled = true,
       timeout = 3000,
+      filter = function(n)
+        if n.msg == "No information available" then
+          return false
+        end
+        return true
+      end,
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
@@ -141,7 +147,7 @@ return {
         Snacks.toggle.diagnostics():map("<leader>ud")
         Snacks.toggle.line_number():map("<leader>ul")
         Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map(
-        "<leader>uc")
+          "<leader>uc")
         Snacks.toggle.treesitter():map("<leader>uT")
         Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         Snacks.toggle.inlay_hints():map("<leader>uh")
@@ -157,7 +163,7 @@ return {
       callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local value = ev.data.params
-        .value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
+            .value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
         if not client or type(value) ~= "table" then
           return
         end
