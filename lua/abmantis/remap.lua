@@ -13,8 +13,6 @@ utils.setkeymap("t", "<S-Esc>", "<Esc>", "Send <Esc> in terminal mode")
 -- utils.setkeymap("t", "<A-k>", "<C-\\><C-n><c-w>k", "Move to up window")
 -- utils.setkeymap("t", "<A-l>", "<C-\\><C-n><c-w>l", "Move to right window")
 
-utils.setkeymap("n", "<leader>pv", vim.cmd.Explore, "Show explorer")
-
 utils.setkeymap('x', "<leader>p", "\"_dp", "Paste without yanking")
 utils.setkeymap('x', "<leader>P", "\"_dP", "Paste without yanking")
 

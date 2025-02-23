@@ -43,7 +43,7 @@ return {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
-    { "<leader>e",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
+    { "<leader>pv",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -81,7 +81,6 @@ return {
     { "<leader>sl",      function() Snacks.picker.loclist() end,                                 desc = "Location List" },
     { "<leader>sm",      function() Snacks.picker.marks() end,                                   desc = "Marks" },
     { "<leader>sM",      function() Snacks.picker.man() end,                                     desc = "Man Pages" },
-    { "<leader>sp",      function() Snacks.picker.lazy() end,                                    desc = "Search for Plugin Spec" },
     { "<leader>sq",      function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
     { "<leader>sR",      function() Snacks.picker.resume() end,                                  desc = "Resume" },
     { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
