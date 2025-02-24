@@ -23,7 +23,7 @@ return {
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = {
-      enabled = true,
+      enabled = false, -- disable for now since it is causing issues with cursor position
       animate = {
         duration = { step = 15, total = 100 },
       },
