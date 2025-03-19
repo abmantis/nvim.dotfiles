@@ -3,6 +3,6 @@ return {
     cond = not vim.g.vscode,
     event = "VeryLazy",
     config = function()
-        vim.g.copilot_enabled = 0
+        vim.g.copilot_enabled = 1
     end,
 }
