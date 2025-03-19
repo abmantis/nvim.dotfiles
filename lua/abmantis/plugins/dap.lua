@@ -82,6 +82,28 @@ return {
     dapvscode.load_launchjs()
 
     require("dap-python").setup("python3")
+    table.insert(dap.configurations.python,
+      {
+        name = "Pytest: Current File",
+        type = "python",
+        request = "launch",
+        module = "pytest",
+        args = function()
+          local args = {
+            "${file}",
+            "-sv",
+            "--log-cli-level=INFO",
+            "--log-file=test_out.log",
+          }
+          local filter = vim.fn.input('Test filter: ')
+          if filter ~= '' then
+            table.insert(args, '-k')
+            table.insert(args, filter)
+          end
+          return args
+        end,
+        console = "integratedTerminal",
+      })
 
     -- Dap UI setup
     dapui.setup {
