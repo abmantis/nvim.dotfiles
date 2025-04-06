@@ -3,6 +3,7 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = 'rafamadriz/friendly-snippets',
   cond = not vim.g.vscode,
+  version="*",
   build = vim.g.is_nixos and 'nix run .#build-plugin',
 
   ---@module 'blink.cmp'
