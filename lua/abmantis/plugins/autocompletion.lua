@@ -17,9 +17,6 @@ return {
   ---@type blink.cmp.Config
   opts = {
     keymap = { preset = 'enter' },
-    cmdline = {
-      sources = {}
-    },
     appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
       -- useful for when your theme doesn't support blink.cmp
