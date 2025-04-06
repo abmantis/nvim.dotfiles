@@ -3,15 +3,7 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = 'rafamadriz/friendly-snippets',
   cond = not vim.g.vscode,
-
-  -- use a release tag to download pre-built binaries
-  -- version = 'v1.0.0',
-  -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
-  -- On musl libc based systems you need to add this flag
-  -- build = 'RUSTFLAGS="-C target-feature=-crt-static" cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
-  build = 'nix run .#build-plugin',
+  build = vim.g.is_nixos and 'nix run .#build-plugin',
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
