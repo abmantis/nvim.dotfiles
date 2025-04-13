@@ -31,6 +31,7 @@ vim.opt.cursorline = true
 vim.opt.showmatch = true
 vim.opt.colorcolumn = "89"
 vim.opt.termguicolors = true
+vim.o.winborder = 'rounded'
 
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
