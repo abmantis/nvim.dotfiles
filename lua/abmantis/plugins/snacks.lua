@@ -19,7 +19,17 @@ return {
         return true
       end,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layout = {
+        fullscreen = true,
+      },
+      formatters = {
+        file = {
+          truncate = 100,
+        }
+      }
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = {
@@ -43,7 +53,7 @@ return {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
-    { "<leader>pv",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
+    { "<leader>pv",      function() Snacks.explorer() end,                                       desc = "File Explorer" },
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
