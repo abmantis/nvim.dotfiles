@@ -8,8 +8,31 @@ return {
     build = "make tiktoken",       -- Only on MacOS or Linux
     cond = not vim.g.vscode,
     opts = {
-      -- See Configuration section for options
+      mappings = {
+        complete = {
+          insert = "<C-S-Space>",
+        },
+      },
     },
-    -- See Commands section for default commands if you want to lazy load on them
+  },
+
+  -- Blink integration
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      sources = {
+        providers = {
+          path = {
+            -- Path sources triggered by "/" interfere with CopilotChat commands
+            enabled = function()
+              return vim.bo.filetype ~= "copilot-chat"
+            end,
+          },
+        },
+      },
+    },
   },
 }
