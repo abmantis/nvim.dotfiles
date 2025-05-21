@@ -1,16 +1,17 @@
 return {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    version = '1.*',
     cond = not vim.g.vscode,
     event = "BufRead",
     dependencies = {
         -- Automatically install LSPs to stdpath for neovim
-        { 'williamboman/mason.nvim', config = true },
-        'williamboman/mason-lspconfig.nvim',
+        { 'williamboman/mason.nvim',           config = true },
+        { 'williamboman/mason-lspconfig.nvim', version = '1.*' },
 
         -- Useful status updates for LSP
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        { 'j-hui/fidget.nvim',       opts = {} },
+        { 'j-hui/fidget.nvim',                 opts = {} },
     },
     config = function()
         -- Use LspAttach autocommand to only map the following keys
