@@ -1,6 +1,7 @@
 return {
     "OXY2DEV/markview.nvim",
     lazy = false,
+    priority = 49, -- assuming nvim-treesitter has priority = 50, the default
     cond = not vim.g.vscode,
     config = function()
         local presets = require("markview.presets");
