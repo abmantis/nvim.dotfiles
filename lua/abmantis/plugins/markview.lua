@@ -11,7 +11,8 @@ return {
                 enable = true,
                 enable_hybrid_mode = true,
                 hybrid_modes = { "n" },
-                preview_ignore = { markdown = { "!list_items" } }
+                preview_ignore = { markdown = { "!list_items" } },
+                filetypes = { "markdown", "codecompanion" },
             },
             markdown = {
                 headings = presets.headings.glow,
