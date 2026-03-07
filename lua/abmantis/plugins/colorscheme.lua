@@ -30,6 +30,11 @@ return {
         lazy = true,
     },
     {
+        'EdenEast/nightfox.nvim',
+        cond = not vim.g.vscode,
+        lazy = true,
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,

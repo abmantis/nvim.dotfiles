@@ -15,21 +15,21 @@ return {
         },
     },
     opts = {
-        strategies = {
-            chat = {
-                roles = {
-                    llm = function(adapter)
-                        local name = adapter.formatted_name
-                        if (adapter.model and adapter.model.name) then
-                            name = name .. " (" .. adapter.model.name .. ")"
-                        end
-                        return name
-                    end,
-                },
-            },
-        },
+        -- strategies = {
+        --     chat = {
+        --         roles = {
+        --             llm = function(adapter)
+        --                 local name = adapter.formatted_name
+        --                 if (adapter.model and adapter.model.name) then
+        --                     name = name .. " (" .. adapter.model.name .. ")"
+        --                 end
+        --                 return name
+        --             end,
+        --         },
+        --     },
+        -- },
     },
     init = function()
-      require("abmantis.plugins.codecompanion.fidget-spinner"):init()
+        require("abmantis.plugins.codecompanion.fidget-spinner"):init()
     end,
 }

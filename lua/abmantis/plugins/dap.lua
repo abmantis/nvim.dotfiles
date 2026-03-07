@@ -65,7 +65,6 @@ return {
 
       local dapvscode = require('dap.ext.vscode')
       dapvscode.json_decode = require('json5').parse
-      dapvscode.load_launchjs()
 
       require("dap-python").setup("python3")
       table.insert(dap.configurations.python,

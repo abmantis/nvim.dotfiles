@@ -17,6 +17,8 @@ return {
             -- "dapui_scopes",
             -- "dapui_watches",
             -- "dapui_stacks",
+            -- "dap-view",
+            -- "dap-view-term"
           },
           winbar = {
             "dap-repl",
