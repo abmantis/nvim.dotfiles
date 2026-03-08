@@ -7,6 +7,15 @@ return {
         -- Useful status updates for LSP
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         { 'j-hui/fidget.nvim', opts = {} },
+        {
+            'folke/lazydev.nvim',
+            ft = 'lua',
+            opts = {
+                library = {
+                    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                },
+            },
+        },
     },
     config = function()
         -- Use LspAttach autocommand to only map the following keys
