@@ -3,7 +3,7 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = 'rafamadriz/friendly-snippets',
   cond = not vim.g.vscode,
-  version="*",
+  version = "*",
   build = vim.g.is_nixos and 'nix run .#build-plugin',
 
   ---@module 'blink.cmp'
@@ -24,6 +24,6 @@ return {
     -- accept = { auto_brackets = { enabled = true } }
 
     -- experimental signature help support
-    -- trigger = { signature_help = { enabled = true } }
+    signature = { enabled = true }
   }
 }
