@@ -2,7 +2,7 @@ return {
     settings = {
         nixd = {
             nixpkgs = {
-                expr = "import <nixpkgs> { }",
+                expr = "import (builtins.getFlake(toString ./.)).inputs.nixpkgs { }",
             },
             formatting = {
                 command = { "alejandra" },
