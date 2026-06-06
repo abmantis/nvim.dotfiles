@@ -18,7 +18,7 @@ return {
                 headings = presets.headings.glow,
                 horizontal_rules = presets.dashed,
                 list_items = {
-                    shift_width = 1
+                    shift_width = 2
                 }
             }
         });
